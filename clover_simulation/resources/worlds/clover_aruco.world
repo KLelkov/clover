@@ -1,17 +1,16 @@
-<?xml version="1.0" ?>
 <sdf version="1.5">
   <world name="default">
-    <!-- A global light source -->
+    
+    <include>
+      <uri>model://aruco_map_real_txt</uri>
+      <pose>0.0 0.0 0.0 0.0 0.0 0.0</pose>
+    </include>
     <include>
       <uri>model://sun</uri>
     </include>
     <include>
       <uri>model://parquet_plane</uri>
       <pose>0 0 -0.01 0 0 0</pose>
-    </include>
-
-    <include>
-      <uri>model://aruco_cmit_txt</uri>
     </include>
 
     <scene>
@@ -22,7 +21,7 @@
       <origin_visual>false</origin_visual>
     </scene>
   
-    <physics name='default_physics' default='0' type='ode'>
+    <physics name="default_physics" default="0" type="ode">
       <gravity>0 0 -9.8066</gravity>
       <ode>
         <solver>

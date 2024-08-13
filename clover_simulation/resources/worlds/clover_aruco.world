@@ -2,7 +2,7 @@
   <world name="default">
     
     <include>
-      <uri>model://aruco_map_real_txt</uri>
+      <uri>model://aruco_map_wall_txt</uri>
       <pose>0.0 0.0 0.0 0.0 0.0 0.0</pose>
     </include>
     <include>

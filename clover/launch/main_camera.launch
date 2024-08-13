@@ -1,13 +1,13 @@
 <launch>
     <!-- article about camera setup: https://clover.coex.tech/camera_setup -->
 
-    <arg name="direction_z" default="down"/> <!-- direction the camera points: down, up -->
-    <arg name="direction_y" default="backward"/> <!-- direction the camera cable points: backward, forward -->
+    <arg name="direction_z" default=""/> <!-- direction the camera points: down, up -->
+    <arg name="direction_y" default=""/> <!-- direction the camera cable points: backward, forward -->
     <arg name="device" default="/dev/video0"/> <!-- v4l2 device -->
     <arg name="throttled_topic" default="true"/> <!-- enable throttled image topic -->
     <arg name="throttled_topic_rate" default="5.0"/> <!-- throttled image topic rate -->
     <arg name="rectify" default="false"/> <!-- enable rectification -->
-    <arg name="simulator" default="false"/>
+    <arg name="simulator" default="true"/>
 
     <node if="$(eval direction_z == 'down' and direction_y == 'backward')" pkg="tf2_ros" type="static_transform_publisher" name="main_camera_frame" args="0.05 0 -0.07 -1.5707963 0 3.1415926 base_link main_camera_optical"/>
     <node if="$(eval direction_z == 'down' and direction_y == 'forward')" pkg="tf2_ros" type="static_transform_publisher" name="main_camera_frame" args="0.05 0 -0.07 1.5707963 0 3.1415926 base_link main_camera_optical"/>
@@ -19,7 +19,7 @@
     <!-- Template for custom camera orientation -->
     <!-- Camera position and orientation are represented by base_link -> main_camera_optical transform -->
     <!-- static_transform_publisher arguments: x y z yaw pitch roll frame_id child_frame_id -->
-    <!-- <node pkg="tf2_ros" type="static_transform_publisher" name="main_camera_frame" args="0.05 0 -0.07 -1.5707963 0 3.1415926 base_link main_camera_optical"/> -->
+    <node pkg="tf2_ros" type="static_transform_publisher" name="main_camera_frame" args="0.15 0 0.05 -1.5707963 0 -1.5707963 base_link main_camera_optical"/>
 
     <!-- camera nodelet manager -->
     <node pkg="nodelet" type="nodelet" name="main_camera_nodelet_manager" args="manager" output="screen" clear_params="true" respawn="true">

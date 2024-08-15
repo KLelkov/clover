@@ -1,3 +1,4 @@
+<?xml version="1.0"?>
 <launch>
     <arg name="ws281x" default="true"/>
     <arg name="led_effect" default="true"/>

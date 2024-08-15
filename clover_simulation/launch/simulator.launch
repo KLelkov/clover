@@ -1,3 +1,4 @@
+<?xml version="1.0"?>
 <launch>
     <arg name="type" default="gazebo"/> <!-- gazebo, jmavsim, none (only clover packages) -->
     <arg name="mav_id" default="0"/>
